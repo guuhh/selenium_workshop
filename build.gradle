@@ -10,9 +10,22 @@ repositories {
     mavenCentral()
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.3'
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.+'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
+    compile group 'org.hamcrest', name: 'hamcrest-all', version: '1.+'
 
+}
+
+sourceSets {
+    test {
+        java {
+            srcDir 'src/test/java'
+        }
+    }
 }
