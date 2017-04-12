@@ -51,7 +51,6 @@ fabric.properties
 
 ### Intellij Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
-
 *.iml
 modules.xml
 .idea/misc.xml
@@ -62,7 +61,7 @@ modules.xml
 .idea/sonarlint
 
 ### Gradle ###
-.gradle/.*
+.gradle/3.3/.*
 /build/
 
 # Ignore Gradle GUI config
