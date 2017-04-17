@@ -1,9 +1,8 @@
 import org.junit.After;
-import org.junit.Test;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class HelloWorld {
 
@@ -11,7 +10,6 @@ public class HelloWorld {
 
     @Before
     public void setUp(){
-        //chrome
         System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
         //System.setProperty("webdriver.gecko.driver","./drivers/gecko");
         driver = new ChromeDriver();
