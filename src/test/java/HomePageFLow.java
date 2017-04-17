@@ -1,34 +1,38 @@
+import Controlers.Message;
+import Models.HomePageDetails;
+import Pages.HomePage;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class HelloWorld {
+
+public class HomePageFLow {
 
     public static WebDriver driver;
+    public static String title;
 
     @Before
     public void setUp(){
+
         System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
-        //System.setProperty("webdriver.gecko.driver","./drivers/gecko");
         driver = new ChromeDriver();
-        driver.get("http://www.thoughtworks.com");
-
-        //firefox
-
-        //headless (phantomjs)
         
+    }
+    @After
+    public void tearDown(){
+
+        driver.quit();
     }
 
     @Test
-    public void checkBrowser(){
+    public void shouldVerifyWithSucessfullHomePageTitle() throws InterruptedException{
+        new HomePage(driver).open();
+        String title = new Message(driver).returnTitle();
+        Assert.assertEquals(HomePageDetails.VALID_TITLE.getHomeTitle(), title);
 
-    }
-
-    @After
-    public void tearDown(){
-        driver.quit();
     }
 
 }
