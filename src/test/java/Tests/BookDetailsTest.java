@@ -1,8 +1,9 @@
 package Tests;
 
 import Setup.Setup;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by grodrigu on 18/04/17.
@@ -28,9 +29,9 @@ public class BookDetailsTest extends Setup {
         String bookAuthor = bookDet.getBookAuthor(driver);
 
         //then
-        Assert.assertEquals(expectBookTitle, bookTitle);
-        Assert.assertEquals(expectBookPrice, bookPrice);
-        Assert.assertEquals(expectBookAuthor, bookAuthor);
+        assertEquals(expectBookTitle, bookTitle);
+        assertEquals(expectBookPrice, bookPrice);
+        assertEquals(expectBookAuthor, bookAuthor);
     }
 
 

@@ -8,9 +8,9 @@ import org.openqa.selenium.WebDriver;
  */
 public class BookDetails {
 
-    private static By productTitle =  By.xpath("//*[@id=\"container\"]/h2");
-    private static By productPrice =  By.xpath("//*[@id=\"product-description\"]/p[2]");
-    private static By productAuthor =  By.xpath("//*[@id=\"product-description\"]/p[3]");
+    private By productTitle =  By.xpath("//*[@id=\"container\"]/h2");
+    private By productPrice =  By.xpath("//*[@id=\"product-description\"]/p[2]");
+    private By productAuthor =  By.xpath("//*[@id=\"product-description\"]/p[3]");
 
     public String getBookTitle(WebDriver driver){
 

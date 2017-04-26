@@ -5,5 +5,6 @@ package Urls;
  */
 public class URLS {
 
-    public static final String  URLHOME = "http://0.0.0.0:3000/";
+    public static final String URLHOME = "http://0.0.0.0:3000/";
+    public static final String LINK_NAME_SINGUP = "Sign up";
 }

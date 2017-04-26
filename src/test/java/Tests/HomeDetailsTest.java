@@ -1,8 +1,9 @@
 package Tests;
 
 import Setup.Setup;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by grodrigu on 25/04/17.
@@ -15,9 +16,11 @@ public class HomeDetailsTest extends Setup {
     public void shouldCheckHomeTitle(){
         //given
         homeTitle = "The Active Admin Store";
+
         //when
         String expectTitle = home.getTitle(driver);
+
         //then
-        Assert.assertEquals(expectTitle, homeTitle);
+        assertEquals(expectTitle, homeTitle);
     }
 }
