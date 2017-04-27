@@ -25,4 +25,10 @@ public class HomePage {
 
     }
 
+    public void clickOnLinkLogin(WebDriver driver, String linkLogin){
+
+        driver.findElement(By.linkText(linkLogin)).click();
+
+    }
+
 }

@@ -3,21 +3,18 @@
     import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
     /**
      * Created by grodrigu on 25/04/17.
      */
-    public class SignupPage {
+    public class SignupPage extends FunctionalDetals{
 
         public static final String ID_USERNAME = "user_username";
         public static final String ID_EMAIL = "user_email";
         public static final String ID_PASSWORD = "user_password";
         public static final String ID_CONF_PASSWORD = "user_password_confirmation";
         public static final String NAME_BUTTON_SIGNUP = "commit";
-
-        private By messageSignedSucess =  By.id("auth");
-        private WebDriverWait wait;
+        public static final String ID_MESSAGE_SIGNED_SUCESS =  "auth";
 
         private WebElement textName;
         private WebElement textEmail;
@@ -28,8 +25,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
         public void fillName(WebDriver driver, String name){
 
             this.textName = driver.findElement(By.id(ID_USERNAME));
-            this.textName.click();
-            this.textName.clear();
             this.textName.sendKeys(name);
         }
 
@@ -56,13 +51,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
             this.buttonSignup = driver.findElement(By.name(NAME_BUTTON_SIGNUP));
             this.buttonSignup.click();
-        }
-
-        public String getMessageAfterSigned(WebDriver driver){
-
-            return driver.findElement(messageSignedSucess).getText();
-
-
         }
 
     }

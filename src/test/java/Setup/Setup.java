@@ -2,6 +2,7 @@ package Setup;
 
 import PageActions.BookDetails;
 import PageActions.HomePage;
+import PageActions.LoginPage;
 import PageActions.SignupPage;
 import Urls.URLS;
 import org.junit.After;
@@ -20,6 +21,7 @@ public class Setup {
     public HomePage home = new HomePage();
     public BookDetails bookDet = new BookDetails();
     public SignupPage signup = new SignupPage();
+    public LoginPage login = new LoginPage();
 
 
     @Before

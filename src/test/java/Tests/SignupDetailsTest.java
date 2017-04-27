@@ -33,7 +33,7 @@ public class SignupDetailsTest extends Setup {
         signup.fillPassword(driver, textPassword);
         signup.fillConfPassword(driver, textConfPassword);
         signup.clickButtonSigUp(driver);
-        String message = signup.getMessageAfterSigned(driver);
+        String message = signup.getMessage(driver, ID_MESSAGE_SIGNED_SUCESS);
 
         //then
         assertTrue(message.contains(textName));
