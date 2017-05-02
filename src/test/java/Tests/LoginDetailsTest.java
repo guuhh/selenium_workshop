@@ -39,7 +39,6 @@ public class LoginDetailsTest extends Setup {
         //given
         textEmail = "fulanotest123@test.com";
         textPassword = "Aklmn123@";
-        
         textName = "Fulano Silva";
 
         //when
