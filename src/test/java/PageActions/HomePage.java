@@ -31,4 +31,10 @@ public class HomePage {
 
     }
 
+    public void clickOnLinkLogout(WebDriver driver, String linkLogin){
+
+        driver.findElement(By.linkText(linkLogin)).click();
+
+    }
+
 }

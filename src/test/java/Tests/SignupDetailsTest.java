@@ -4,7 +4,7 @@ import Setup.Setup;
 import org.junit.Test;
 
 import static PageActions.SignupPage.*;
-import static Urls.URLS.LINK_NAME_SINGUP;
+import static Urls.BasePage.LINK_NAME_SINGUP;
 import static org.junit.Assert.*;
 
 /**
