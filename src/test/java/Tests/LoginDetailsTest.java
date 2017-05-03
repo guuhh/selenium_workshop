@@ -1,5 +1,7 @@
 package Tests;
 
+import PageActions.HomePage;
+import PageActions.SignupPage;
 import Setup.Setup;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,7 +21,7 @@ public class LoginDetailsTest extends Setup {
     private String textPassword;
 
     @BeforeClass
-    public void backGround(){
+    public static void beforeSetup(){
         //given
         String textName = "Cicrano Silva";
         String textEmail = "cicranotest123@test.com";
@@ -27,6 +29,9 @@ public class LoginDetailsTest extends Setup {
         String textConfPassword = "Alpok876˜";
 
         //when
+        HomePage home = new HomePage();
+        SignupPage signup = new SignupPage();
+
         home.clickOnLinkSignUp(driver, LINK_NAME_SINGUP);
         signup.fillName(driver, textName);
         signup.fillEmail(driver, textEmail);

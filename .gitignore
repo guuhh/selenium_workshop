@@ -18,8 +18,8 @@
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
-
-# Gradle:
+.idea/**/compiler.xml
+.idea/**/vcs.xml
 .idea/**/gradle.xml
 .idea/**/libraries
 

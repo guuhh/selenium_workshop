@@ -7,8 +7,6 @@ import PageActions.SignupPage;
 import Urls.BasePage;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.FixMethodOrder;
-import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -20,7 +18,7 @@ import static io.restassured.RestAssured.get;
 /**
  * Created by grodrigu on 18/04/17.
  */
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Setup {
 
     public static WebDriver driver;
@@ -36,7 +34,6 @@ public class Setup {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-        get(BasePage.BASE_URL + SEED_ENDPOINT).then().statusCode(200);
         driver.get(BasePage.BASE_URL);
 
     }
