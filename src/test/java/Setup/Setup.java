@@ -1,12 +1,11 @@
 package Setup;
 
-import PageActions.BookDetails;
-import PageActions.HomePage;
-import PageActions.LoginPage;
-import PageActions.SignupPage;
+import PageActions.*;
 import Urls.BasePage;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -18,14 +17,18 @@ import static io.restassured.RestAssured.get;
 /**
  * Created by grodrigu on 18/04/17.
  */
-//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
 public class Setup {
 
     public static WebDriver driver;
-    public HomePage home = new HomePage();
-    public BookDetails bookDet = new BookDetails();
-    public SignupPage signup = new SignupPage();
-    public LoginPage login = new LoginPage();
+    public  HomePage home = new HomePage();
+    public  BookDetails bookDet = new BookDetails();
+    public  SignupPage signup = new SignupPage();
+    public  LoginPage login = new LoginPage();
+    public  MyCartPage mycart = new MyCartPage();
+
 
     @Before
     public void setUp(){
@@ -37,9 +40,11 @@ public class Setup {
         driver.get(BasePage.BASE_URL);
 
     }
+
+
     @After
     public void tearDown(){
         get(BasePage.BASE_URL +SEED_ENDPOINT).then().statusCode(200);
-        //driver.quit();
+        driver.quit();
     }
 }

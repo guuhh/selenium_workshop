@@ -3,7 +3,7 @@ package Tests;
 import PageActions.HomePage;
 import PageActions.SignupPage;
 import Setup.Setup;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 import static PageActions.LoginPage.ID_MESSAGE_LOGED_SUCESS;
@@ -20,8 +20,8 @@ public class LoginDetailsTest extends Setup {
     private String textEmail;
     private String textPassword;
 
-    @BeforeClass
-    public static void beforeSetup(){
+    @Before
+    public void setupLoginDetails(){
         //given
         String textName = "Cicrano Silva";
         String textEmail = "cicranotest123@test.com";
@@ -29,20 +29,21 @@ public class LoginDetailsTest extends Setup {
         String textConfPassword = "Alpok876˜";
 
         //when
-        HomePage home = new HomePage();
-        SignupPage signup = new SignupPage();
+        HomePage homeToLoginScenario = new HomePage();
+        SignupPage signupToLoginScenario = new SignupPage();
 
-        home.clickOnLinkSignUp(driver, LINK_NAME_SINGUP);
-        signup.fillName(driver, textName);
-        signup.fillEmail(driver, textEmail);
-        signup.fillPassword(driver, textPassword);
-        signup.fillConfPassword(driver, textConfPassword);
-        signup.clickButtonSigUp(driver);
-        home.clickOnLinkLogout(driver, LINK_NAME_LOGOUT);
+        homeToLoginScenario.clickOnLinkSignUp(driver, LINK_NAME_SINGUP);
+        signupToLoginScenario.fillName(driver, textName);
+        signupToLoginScenario.fillEmail(driver, textEmail);
+        signupToLoginScenario.fillPassword(driver, textPassword);
+        signupToLoginScenario.fillConfPassword(driver, textConfPassword);
+        signupToLoginScenario.clickButtonSigUp(driver);
+        homeToLoginScenario.clickOnLinkLogout(driver, LINK_NAME_LOGOUT);
 
     }
+
     @Test
-    public void shouldLogedWithSucessfulUsingName() {
+    public void shouldLogedWithSuccessfulUsingName() {
 
         //given
         textName = "Cicrano Silva";
@@ -60,7 +61,7 @@ public class LoginDetailsTest extends Setup {
     }
 
     @Test
-    public void shouldLogedWithSucessfulUsingEmail() {
+    public void shouldLogedWithSuccessfulUsingEmail() {
 
         //given
         textEmail = "cicranotest123@test.com";

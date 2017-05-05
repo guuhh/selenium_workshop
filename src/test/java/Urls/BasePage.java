@@ -9,6 +9,7 @@ public class BasePage {
     public static final String LINK_NAME_SINGUP = "Sign up";
     public static final String LINK_NAME_LOGIN = "Log in";
     public static final String LINK_NAME_LOGOUT = "Log out";
+    public static final String LINK_NAME_ADD_CART = "Add to Card";
     public static final String SEED_ENDPOINT = "db/seed";
 
 

@@ -3,9 +3,9 @@ package Tests;
 import Setup.Setup;
 import org.junit.Test;
 
-import static PageActions.SignupPage.*;
+import static PageActions.SignupPage.ID_MESSAGE_SIGNED_SUCESS;
 import static Urls.BasePage.LINK_NAME_SINGUP;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by grodrigu on 25/04/17.

@@ -22,17 +22,20 @@ import org.openqa.selenium.WebElement;
         private WebElement textConfPassword;
         private WebElement buttonSignup;
 
+
         public void fillName(WebDriver driver, String name){
 
             this.textName = driver.findElement(By.id(ID_USERNAME));
             this.textName.sendKeys(name);
         }
 
+
         public void fillEmail(WebDriver driver, String textEmail){
 
             this.textEmail = driver.findElement(By.id(ID_EMAIL));
             this.textEmail.sendKeys(textEmail);
         }
+
 
         public void fillPassword(WebDriver driver, String textPassword){
 
@@ -41,11 +44,13 @@ import org.openqa.selenium.WebElement;
             //String ret = driver.findElement(By.xpath("//*[@id=\"auth\"]/text()[2]")).getAttribute("value");
         }
 
+
         public void fillConfPassword(WebDriver driver, String name){
 
             this.textConfPassword = driver.findElement(By.id(ID_CONF_PASSWORD));
             this.textConfPassword.sendKeys(name);
         }
+
 
         public void clickButtonSigUp(WebDriver driver){
 

@@ -3,7 +3,7 @@ package Tests;
 import Setup.Setup;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by grodrigu on 18/04/17.
