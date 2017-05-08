@@ -5,6 +5,7 @@ import PageActions.SignupPage;
 import Setup.Setup;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 
 import static Urls.BasePage.*;
 import static org.junit.Assert.assertEquals;
@@ -12,13 +13,13 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by grodrigu on 04/05/17.
  */
-public class CartDetailsTest extends Setup {
+public class CartAditionItemDetailsTest extends Setup {
 
     private String expectBookTitle;
 
 
     @Before
-    public void setupCartDetails(){
+    public void setupCartAditionItemDetails(){
         //given
         String textName = "Beltrano Dutra";
         String textEmail = "beltranotest123@test.com";
@@ -26,16 +27,18 @@ public class CartDetailsTest extends Setup {
         String textConfPassword = "Warvk092!";
 
          //when
-        HomePage homeToCartScenario = new HomePage();
-        SignupPage signupToCartScenario = new SignupPage();
+        HomePage homeToAditionCart = new HomePage();
+        SignupPage signupToAditionCart = new SignupPage();
 
-        homeToCartScenario.clickOnLinkSignUp(driver, LINK_NAME_SINGUP);
-        signupToCartScenario.fillName(driver, textName);
-        signupToCartScenario.fillEmail(driver, textEmail);
-        signupToCartScenario.fillPassword(driver, textPassword);
-        signupToCartScenario.fillConfPassword(driver, textConfPassword);
-        signupToCartScenario.clickButtonSigUp(driver);
-        homeToCartScenario.clickOnLinkLogout(driver, LINK_NAME_LOGOUT);
+        homeToAditionCart.clickOnLinkSignUp(driver, LINK_NAME_SINGUP);
+
+        signupToAditionCart.fillName(driver, textName);
+        signupToAditionCart.fillEmail(driver, textEmail);
+        signupToAditionCart.fillPassword(driver, textPassword);
+        signupToAditionCart.fillConfPassword(driver, textConfPassword);
+        signupToAditionCart.clickButtonSigUp(driver);
+
+        homeToAditionCart.clickOnLinkLogout(driver, LINK_NAME_LOGOUT);
 
     }
 
@@ -57,7 +60,8 @@ public class CartDetailsTest extends Setup {
         login.clickButtonLogin(driver);
 
         //then
-        String bookTitle = mycart.getBookTitleOnMyCart(driver);
+        By productTitle =  By.xpath("//*[@id=\"container\"]/table/tbody/tr[2]/td[1]");
+        String bookTitle = mycart.getBookTitleOnMyCart(driver, productTitle);
         assertEquals(expectBookTitle, bookTitle);
 
     }
@@ -81,7 +85,8 @@ public class CartDetailsTest extends Setup {
         bookDet.clickOnAddOnCart(driver, LINK_NAME_ADD_CART);
 
         //then
-        String bookTitle = mycart.getBookTitleOnMyCart(driver);
+        By productTitle =  By.xpath("//*[@id=\"container\"]/table/tbody/tr[2]/td[1]");
+        String bookTitle = mycart.getBookTitleOnMyCart(driver, productTitle);
         assertEquals(expectBookTitle, bookTitle);
 
     }

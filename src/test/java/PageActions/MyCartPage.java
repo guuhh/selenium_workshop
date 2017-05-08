@@ -8,12 +8,20 @@ import org.openqa.selenium.WebDriver;
  */
 public class MyCartPage{
 
-    private By productTitle =  By.xpath("//*[@id=\"container\"]/table/tbody/tr[2]/td[1]");
 
-
-    public String getBookTitleOnMyCart(WebDriver driver){
+    public String getBookTitleOnMyCart(WebDriver driver, By productTitle){
 
         return driver.findElement(productTitle).getText();
 
+    }
+
+    public void clickOnLinkContinue(WebDriver driver, String linkContinue){
+
+        driver.findElement(By.linkText(linkContinue)).click();
+    }
+
+    public void clickOnLinkRemover(WebDriver driver, By byTD){
+
+        driver.findElement(byTD).click();
     }
 }
