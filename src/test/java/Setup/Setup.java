@@ -20,14 +20,14 @@ import static io.restassured.RestAssured.get;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class Setup {
+public abstract class Setup {
 
     public static WebDriver driver;
-    public  HomePage home = new HomePage();
-    public  BookDetails bookDet = new BookDetails();
-    public  SignupPage signup = new SignupPage();
-    public  LoginPage login = new LoginPage();
-    public  MyCartPage mycart = new MyCartPage();
+    public HomePage home = new HomePage();
+    public BookDetails bookDet = new BookDetails();
+    public SignupPage signup = new SignupPage();
+    public LoginPage login = new LoginPage();
+    public MyCartPage mycart = new MyCartPage();
     public DashboardsPage dash = new DashboardsPage();
 
 
@@ -40,7 +40,6 @@ public class Setup {
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(BasePage.BASE_URL);
-
     }
 
 

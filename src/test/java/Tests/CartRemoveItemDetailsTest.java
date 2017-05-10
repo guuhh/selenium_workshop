@@ -1,9 +1,6 @@
 package Tests;
 
-import PageActions.HomePage;
-import PageActions.SignupPage;
-import Setup.Setup;
-import org.junit.Before;
+import Setup.SetupBeforeMyCart;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -13,7 +10,7 @@ import static org.junit.Assert.*;
 /**
  * Created by grodrigu on 08/05/17.
  */
-public class CartRemotionItemDetailsTest extends Setup {
+public class CartRemoveItemDetailsTest extends SetupBeforeMyCart {
 
 
     private String expectFirstBookTitle;
@@ -21,31 +18,8 @@ public class CartRemotionItemDetailsTest extends Setup {
     private String expectEmptyCartMessage;
 
 
-    @Before
-    public void setupCartRemoveItemDetails(){
-        //given
-        String textName = "Beltrano Dutra";
-        String textEmail = "beltranotest123@test.com";
-        String textPassword = "Warvk092!";
-        String textConfPassword = "Warvk092!";
-
-        //when
-        HomePage homeToRemotionCart = new HomePage();
-        SignupPage signupToRemotionCart = new SignupPage();
-
-        homeToRemotionCart.clickOnLinkSignUp(driver, LINK_NAME_SINGUP);
-
-        signupToRemotionCart.fillName(driver, textName);
-        signupToRemotionCart.fillEmail(driver, textEmail);
-        signupToRemotionCart.fillPassword(driver, textPassword);
-        signupToRemotionCart.fillConfPassword(driver, textConfPassword);
-        signupToRemotionCart.clickButtonSigUp(driver);
-
-    }
-
     @Test
-    public void shouldRemoveOnlyFirstBookithSuccessful(){
-
+    public void shouldRemoveOnlyFirstBookWithSuccessful(){
 
         //given
         expectFirstBookTitle = "Seven Languages in Seven Weeks: A Pragmatic Guide to Learning Programming Languages " +
@@ -79,7 +53,7 @@ public class CartRemotionItemDetailsTest extends Setup {
     }
 
     @Test
-    public void shouldRemoveTheTwoBookithSuccessful(){
+    public void shouldRemoveTheTwoBookWithSuccessful(){
 
         expectEmptyCartMessage = "You don't have any items in your cart. ";
 
@@ -114,7 +88,7 @@ public class CartRemotionItemDetailsTest extends Setup {
 
         String emptyCartMessage = mycart.getBookTitleOnMyCart(driver, EmptyCartText);
 
-        assertTrue(emptyCartMessage.contentEquals(expectEmptyCartMessage));
+        assertTrue(emptyCartMessage.contains(expectEmptyCartMessage));
 
     }
 }

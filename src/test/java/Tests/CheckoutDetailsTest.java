@@ -1,5 +1,6 @@
 package Tests;
 
+import Setup.SetupBeforeMyCart;
 import org.junit.Test;
 
 import static PageActions.SignupPage.ID_MESSAGE_SIGNED_SUCESS;
@@ -8,7 +9,7 @@ import static Urls.BasePage.*;
 /**
  * Created by grodrigu on 09/05/17.
  */
-public class CheckoutDetailsTest extends CartRemotionItemDetailsTest{
+public class CheckoutDetailsTest extends SetupBeforeMyCart {
 
     private String expectFirstBookTitle;
     private String expectSecondBookTitle;

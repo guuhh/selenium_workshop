@@ -1,9 +1,6 @@
 package Tests;
 
-import PageActions.HomePage;
-import PageActions.SignupPage;
-import Setup.Setup;
-import org.junit.Before;
+import Setup.SetupBeforeMyCart;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -13,35 +10,9 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by grodrigu on 04/05/17.
  */
-public class CartAditionItemDetailsTest extends Setup {
+public class CartAdditionItemDetailsTest extends SetupBeforeMyCart {
 
     private String expectBookTitle;
-
-
-    @Before
-    public void setupCartAdditionItemDetails(){
-
-        //given
-        String textName = "Beltrano Dutra";
-        String textEmail = "beltranotest123@test.com";
-        String textPassword = "Warvk092!";
-        String textConfPassword = "Warvk092!";
-
-         //when
-        HomePage homeToAditionCart = new HomePage();
-        SignupPage signupToAditionCart = new SignupPage();
-
-        homeToAditionCart.clickOnLinkSignUp(driver, LINK_NAME_SINGUP);
-
-        signupToAditionCart.fillName(driver, textName);
-        signupToAditionCart.fillEmail(driver, textEmail);
-        signupToAditionCart.fillPassword(driver, textPassword);
-        signupToAditionCart.fillConfPassword(driver, textConfPassword);
-        signupToAditionCart.clickButtonSigUp(driver);
-
-        homeToAditionCart.clickOnLinkLogout(driver, LINK_NAME_LOGOUT);
-
-    }
 
     @Test
     public void shouldAddBookNotIsLoggedWithSuccessful(){
@@ -52,6 +23,7 @@ public class CartAditionItemDetailsTest extends Setup {
         expectBookTitle = "Seven Languages in Seven Weeks: A Pragmatic Guide to Learning Programming Languages " +
                 "(Pragmatic Programmers)";
 
+        home.clickOnLinkLogout(driver, LINK_NAME_LOGOUT);
         home.clickOnBook(driver, expectBookTitle);
 
         //when
@@ -77,6 +49,7 @@ public class CartAditionItemDetailsTest extends Setup {
         expectBookTitle = "Seven Languages in Seven Weeks: A Pragmatic Guide to Learning Programming Languages " +
                 "(Pragmatic Programmers)";
 
+        home.clickOnLinkLogout(driver, LINK_NAME_LOGOUT);
         home.clickOnLinkLogin(driver, LINK_NAME_LOGIN);
         login.fillLoginName(driver, textName);
         login.fillLoginPassword(driver, textPassword);
