@@ -6,7 +6,7 @@ import Setup.Setup;
 import org.junit.Before;
 import org.junit.Test;
 
-import static PageActions.LoginPage.ID_MESSAGE_LOGED_SUCESS;
+import static PageActions.SignupPage.ID_MESSAGE_SIGNED_SUCESS;
 import static Urls.BasePage.*;
 import static org.junit.Assert.assertTrue;
 
@@ -54,7 +54,7 @@ public class LoginDetailsTest extends Setup {
         login.fillLoginName(driver, textName);
         login.fillLoginPassword(driver, textPassword);
         login.clickButtonLogin(driver);
-        String message = login.getMessage(driver, ID_MESSAGE_LOGED_SUCESS);
+        String message = login.getMessage(driver, ID_MESSAGE_SIGNED_SUCESS);
         //then
         assertTrue(message.contains(textName));
 
@@ -73,7 +73,7 @@ public class LoginDetailsTest extends Setup {
         login.fillLoginName(driver, textEmail);
         login.fillLoginPassword(driver, textPassword);
         login.clickButtonLogin(driver);
-        String message = login.getMessage(driver, ID_MESSAGE_LOGED_SUCESS);
+        String message = login.getMessage(driver, ID_MESSAGE_SIGNED_SUCESS);
 
         //then
         assertTrue(message.contains(textName));

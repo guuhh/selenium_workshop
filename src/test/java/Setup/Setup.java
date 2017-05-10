@@ -28,6 +28,7 @@ public class Setup {
     public  SignupPage signup = new SignupPage();
     public  LoginPage login = new LoginPage();
     public  MyCartPage mycart = new MyCartPage();
+    public DashboardsPage dash = new DashboardsPage();
 
 
     @Before
@@ -35,9 +36,9 @@ public class Setup {
 
         System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
         driver = new ChromeDriver();
-        driver.manage().window();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         driver.get(BasePage.BASE_URL);
 
     }
@@ -46,6 +47,6 @@ public class Setup {
     @After
     public void tearDown(){
         get(BasePage.BASE_URL + SEED_ENDPOINT).then().statusCode(200);
-        driver.quit();
+        //driver.quit();
     }
 }

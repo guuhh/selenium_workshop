@@ -19,7 +19,8 @@ public class CartAditionItemDetailsTest extends Setup {
 
 
     @Before
-    public void setupCartAditionItemDetails(){
+    public void setupCartAdditionItemDetails(){
+
         //given
         String textName = "Beltrano Dutra";
         String textEmail = "beltranotest123@test.com";
@@ -59,9 +60,10 @@ public class CartAditionItemDetailsTest extends Setup {
         login.fillLoginPassword(driver, textPassword);
         login.clickButtonLogin(driver);
 
-        //then
         By productTitle =  By.xpath("//*[@id=\"container\"]/table/tbody/tr[2]/td[1]");
         String bookTitle = mycart.getBookTitleOnMyCart(driver, productTitle);
+
+        //then
         assertEquals(expectBookTitle, bookTitle);
 
     }
@@ -83,10 +85,10 @@ public class CartAditionItemDetailsTest extends Setup {
 
         //when
         bookDet.clickOnAddOnCart(driver, LINK_NAME_ADD_CART);
-
-        //then
         By productTitle =  By.xpath("//*[@id=\"container\"]/table/tbody/tr[2]/td[1]");
         String bookTitle = mycart.getBookTitleOnMyCart(driver, productTitle);
+
+        //then
         assertEquals(expectBookTitle, bookTitle);
 
     }

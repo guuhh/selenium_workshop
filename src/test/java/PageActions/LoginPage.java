@@ -7,12 +7,11 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by grodrigu on 27/04/17.
  */
-public class LoginPage extends FunctionalDetals{
+public class LoginPage extends FunctionalDetails{
 
     public static final String ID_LOGIN_EMAIL = "login";
     public static final String ID_LOGIN_PASSWORD = "password";
     public static final String NAME_BUTTON_LOGIN = "commit";
-    public static final String ID_MESSAGE_LOGED_SUCESS =  "auth";
 
     private WebElement textName;
     private WebElement textEmail;

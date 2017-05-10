@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by grodrigu on 18/04/17.
  */
-public class BookDetails extends  FunctionalDetals{
+public class BookDetails extends  FunctionalDetails{
 
     private By productTitle =  By.xpath("//*[@id=\"container\"]/h2");
     private By productPrice =  By.xpath("//*[@id=\"product-description\"]/p[2]");

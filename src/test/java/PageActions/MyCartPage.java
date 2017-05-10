@@ -6,8 +6,9 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by grodrigu on 04/05/17.
  */
-public class MyCartPage{
+public class MyCartPage extends FunctionalDetails{
 
+    public static final String NAME_CHECKOUT_BUTTON = "commit";
 
     public String getBookTitleOnMyCart(WebDriver driver, By productTitle){
 
@@ -23,5 +24,9 @@ public class MyCartPage{
     public void clickOnLinkRemover(WebDriver driver, By byTD){
 
         driver.findElement(byTD).click();
+    }
+
+    public void clickOnCheckout(WebDriver driver){
+        driver.findElement(By.name(NAME_CHECKOUT_BUTTON)).click();
     }
 }

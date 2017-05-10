@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
     /**
      * Created by grodrigu on 25/04/17.
      */
-    public class SignupPage extends FunctionalDetals{
+    public class SignupPage extends FunctionalDetails{
 
         public static final String ID_USERNAME = "user_username";
         public static final String ID_EMAIL = "user_email";

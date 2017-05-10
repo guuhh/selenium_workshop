@@ -1,8 +1,6 @@
 package Tests;
 
-import PageActions.BookDetails;
 import PageActions.HomePage;
-import PageActions.MyCartPage;
 import PageActions.SignupPage;
 import Setup.Setup;
 import org.junit.Before;
@@ -10,9 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 
 import static Urls.BasePage.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by grodrigu on 08/05/17.
@@ -22,11 +18,11 @@ public class CartRemotionItemDetailsTest extends Setup {
 
     private String expectFirstBookTitle;
     private String expectSecondBookTitle;
-    private String empityCartMessage;
+    private String expectEmptyCartMessage;
 
 
     @Before
-    public void setupCartRemotionItemDetails(){
+    public void setupCartRemoveItemDetails(){
         //given
         String textName = "Beltrano Dutra";
         String textEmail = "beltranotest123@test.com";
@@ -36,8 +32,6 @@ public class CartRemotionItemDetailsTest extends Setup {
         //when
         HomePage homeToRemotionCart = new HomePage();
         SignupPage signupToRemotionCart = new SignupPage();
-        BookDetails bookToRemotionCart = new BookDetails();
-        MyCartPage mycart = new MyCartPage();
 
         homeToRemotionCart.clickOnLinkSignUp(driver, LINK_NAME_SINGUP);
 
@@ -87,7 +81,7 @@ public class CartRemotionItemDetailsTest extends Setup {
     @Test
     public void shouldRemoveTheTwoBookithSuccessful(){
 
-        empityCartMessage = "You don't have any items in your cart. ";
+        expectEmptyCartMessage = "You don't have any items in your cart. ";
 
         //given
         expectFirstBookTitle = "Seven Languages in Seven Weeks: A Pragmatic Guide to Learning Programming Languages " +
@@ -119,9 +113,8 @@ public class CartRemotionItemDetailsTest extends Setup {
         By EmptyCartText = By.xpath("//*[@id=\"container\"]/p");
 
         String emptyCartMessage = mycart.getBookTitleOnMyCart(driver, EmptyCartText);
-        System.out.print(emptyCartMessage);
 
-        assertTrue(empityCartMessage.contentEquals(empityCartMessage));
+        assertTrue(emptyCartMessage.contentEquals(expectEmptyCartMessage));
 
     }
 }

@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
  */
 public class HomePage{
 
+
+
     public String getTitle(WebDriver driver){
 
        return driver.getTitle();
@@ -38,6 +40,12 @@ public class HomePage{
     public void clickOnLinkLogout(WebDriver driver, String linkLogin){
 
         driver.findElement(By.linkText(linkLogin)).click();
+
+    }
+
+    public void clickOnLinkAdminUI(WebDriver driver, String linkAdmin){
+
+        driver.findElement(By.linkText(linkAdmin)).click();
 
     }
 
