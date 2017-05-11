@@ -14,6 +14,7 @@ public class HomeDetailsTest extends Setup {
 
     @Test
     public void shouldCheckHomeTitle(){
+
         //given
         homeTitle = "The Active Admin Store";
 

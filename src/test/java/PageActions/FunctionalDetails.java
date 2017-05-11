@@ -26,24 +26,25 @@ public abstract class FunctionalDetails {
 
     }
 
-    public String checkTotalValue() {
+    public String getTotalValueChecked() {
 
         List<WebElement> FindBody = driver.findElements(By.xpath("//*[@id=\"container\"]/table/tbody"));
         String fullText;
         ArrayList<String> textValues = new ArrayList<>();
         String pattern = "[$](([1-9]+\\.?\\d*)|([0]\\.\\d*)|[0])";
-        Pattern r = Pattern.compile(pattern);
+        Pattern patternCompiled = Pattern.compile(pattern);
+        Matcher matcher;
+        int index = 0;
         Double doubleValue = 0.00;
         Double totalValue = 0.00;
-        int index = 0;
-        Matcher m;
 
 
         fullText = FindBody.get(0).getText();
-        m = r.matcher(fullText);
+        matcher = patternCompiled.matcher(fullText);
 
-            while (m.find()) {
-                textValues.add(m.group());
+            while (matcher.find()) {
+
+                textValues.add(matcher.group());
             }
 
             for (String valueText : textValues) {
@@ -55,6 +56,7 @@ public abstract class FunctionalDetails {
             for (int i = 0; i < textValues.size(); i++) {
 
                 if (i != (textValues.size() - 1)) {
+
                     doubleValue = doubleValue + Double.parseDouble(textValues.get(i).toString());
 
                 } else {
@@ -64,13 +66,47 @@ public abstract class FunctionalDetails {
             }
 
              DecimalFormat df = new DecimalFormat("#.##");
+
              doubleValue = Double.valueOf(df.format(doubleValue));
 
              assertEquals(doubleValue,totalValue);
 
         String total = "$" + Double.toString(totalValue);
+
         return total;
 
+    }
+
+        String getLastIDRow(WebDriver driver, String className) {
+
+        String fullText;
+        ArrayList<String> textValues = new ArrayList<>();
+        String pattern = "[#]([1-9])\\d+";
+        Pattern patternCompiled = Pattern.compile(pattern);
+        Matcher matcher;
+        int index = 0;
+
+        String idNameText = null;
+
+        WebElement element = driver.findElements(By.className(className)).get(0);
+
+        fullText = element.getText();
+
+        matcher = patternCompiled.matcher(fullText);
+
+        while (matcher.find()) {
+
+            textValues.add(matcher.group());
+        }
+
+        for (String valueText : textValues) {
+
+            String newValueText = valueText.substring(1);
+            idNameText = "order_"+newValueText;
+            index++;
+        }
+
+       return idNameText;
     }
 
 }

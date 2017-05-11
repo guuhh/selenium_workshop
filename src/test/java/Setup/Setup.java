@@ -29,6 +29,7 @@ public abstract class Setup {
     public LoginPage login = new LoginPage();
     public MyCartPage mycart = new MyCartPage();
     public DashboardsPage dash = new DashboardsPage();
+    public OrdersPage order = new OrdersPage();
 
 
     @Before
@@ -46,6 +47,6 @@ public abstract class Setup {
     @After
     public void tearDown(){
         get(BasePage.BASE_URL + SEED_ENDPOINT).then().statusCode(200);
-        //driver.quit();
+        driver.quit();
     }
 }

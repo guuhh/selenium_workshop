@@ -8,11 +8,23 @@ import org.openqa.selenium.WebDriver;
  */
 public class MyCartPage extends FunctionalDetails{
 
+    public static By indexProductTitle;
     public static final String NAME_CHECKOUT_BUTTON = "commit";
+    public static final By RemoveLink = By.xpath("//*[@id=\"container\"]/table/tbody/tr[2]/td[3]/a");
+    public static final By EmptyCartText = By.xpath("//*[@id=\"container\"]/p");
 
-    public String getBookTitleOnMyCart(WebDriver driver, By productTitle){
+    public String getEmptyMyCart(WebDriver driver){
 
-        return driver.findElement(productTitle).getText();
+        return driver.findElement(EmptyCartText).getText();
+
+    }
+
+    public String getBookTitleOnMyCart(WebDriver driver, int indexBookRow){
+
+        String xPath = "//*[@id=\"container\"]/table/tbody/tr["+indexBookRow+"]/td[1]";
+        indexProductTitle = By.xpath(xPath);
+
+        return driver.findElement(indexProductTitle).getText();
 
     }
 
@@ -21,9 +33,9 @@ public class MyCartPage extends FunctionalDetails{
         driver.findElement(By.linkText(linkContinue)).click();
     }
 
-    public void clickOnLinkRemover(WebDriver driver, By byTD){
+    public void clickOnLinkRemover(WebDriver driver){
 
-        driver.findElement(byTD).click();
+        driver.findElement(RemoveLink).click();
     }
 
     public void clickOnCheckout(WebDriver driver){

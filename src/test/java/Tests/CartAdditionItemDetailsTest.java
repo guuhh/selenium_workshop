@@ -2,7 +2,6 @@ package Tests;
 
 import Setup.SetupBeforeMyCart;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import static Urls.BasePage.*;
 import static org.junit.Assert.assertEquals;
@@ -13,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class CartAdditionItemDetailsTest extends SetupBeforeMyCart {
 
     private String expectBookTitle;
+    int indexFirstBook = 2;
 
     @Test
     public void shouldAddBookNotIsLoggedWithSuccessful(){
@@ -32,8 +32,7 @@ public class CartAdditionItemDetailsTest extends SetupBeforeMyCart {
         login.fillLoginPassword(driver, textPassword);
         login.clickButtonLogin(driver);
 
-        By productTitle =  By.xpath("//*[@id=\"container\"]/table/tbody/tr[2]/td[1]");
-        String bookTitle = mycart.getBookTitleOnMyCart(driver, productTitle);
+        String bookTitle = mycart.getBookTitleOnMyCart(driver, indexFirstBook);
 
         //then
         assertEquals(expectBookTitle, bookTitle);
@@ -58,8 +57,7 @@ public class CartAdditionItemDetailsTest extends SetupBeforeMyCart {
 
         //when
         bookDet.clickOnAddOnCart(driver, LINK_NAME_ADD_CART);
-        By productTitle =  By.xpath("//*[@id=\"container\"]/table/tbody/tr[2]/td[1]");
-        String bookTitle = mycart.getBookTitleOnMyCart(driver, productTitle);
+        String bookTitle = mycart.getBookTitleOnMyCart(driver, indexFirstBook);
 
         //then
         assertEquals(expectBookTitle, bookTitle);

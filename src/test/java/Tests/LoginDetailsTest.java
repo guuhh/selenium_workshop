@@ -73,6 +73,7 @@ public class LoginDetailsTest extends Setup {
         login.fillLoginName(driver, textEmail);
         login.fillLoginPassword(driver, textPassword);
         login.clickButtonLogin(driver);
+
         String message = login.getMessage(driver, ID_MESSAGE_SIGNED_SUCESS);
 
         //then
