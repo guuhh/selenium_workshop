@@ -17,7 +17,7 @@ public class CheckoutDetailsTest extends SetupBeforeMyCart {
     private String expectSecondBookTitle;
 
     @Test
-    public void shouldCheckedIfOrderValueIsFinalizedWithSuccessful() {
+    public void shouldCheckIfOrderValueWasFinalizedWithSuccessful() {
 
         //given
         logedName = "Beltrano Dutra";
@@ -44,7 +44,7 @@ public class CheckoutDetailsTest extends SetupBeforeMyCart {
     }
 
     @Test
-    public void shouldCheckedIfOrderValueIsMoreThanZeroToSucessful() {
+    public void shouldCheckIfOrderValueIsMoreThanZeroToSucessful() {
 
         //given
         logedName = "Beltrano Dutra";
