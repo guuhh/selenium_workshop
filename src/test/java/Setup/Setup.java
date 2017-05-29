@@ -2,13 +2,14 @@ package Setup;
 
 import PageActions.*;
 import Urls.BasePage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.FixMethodOrder;
+import org.junit.*;
 import org.junit.runners.MethodSorters;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static Urls.BasePage.SEED_ENDPOINT;
@@ -41,6 +42,8 @@ public abstract class Setup {
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(BasePage.BASE_URL);
+
+
     }
 
 
@@ -48,5 +51,29 @@ public abstract class Setup {
     public void tearDown(){
         get(BasePage.BASE_URL + SEED_ENDPOINT).then().statusCode(200);
         driver.quit();
+    }
+
+
+    @Test
+    public static void exampleLoginAmazon(){
+
+        String parcialMessage = "Luiz";
+        WebElement element;
+
+        element = driver.findElement(By.id("ap_email"));
+        element.sendKeys("gustavo@gmail.com");
+        element =  driver.findElement(By.id("ap_password"));
+        element.sendKeys("23456");
+        element = driver.findElement(By.id("signInSubmit"));
+        element.click();
+
+        WebElement linkElement;
+        List<WebElement> spanElements;
+        linkElement = driver.findElement(By.id("nav-link-accountList"));
+        spanElements = linkElement.findElements(By.className("nav-line-1"));
+        String successfulMessage = spanElements.get(0).toString();
+
+        Assert.assertTrue(successfulMessage.contains(parcialMessage));
+
     }
 }
